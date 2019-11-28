@@ -20,7 +20,7 @@
           </elementProp>
           <elementProp name="targetHost" elementType="Argument">
             <stringProp name="Argument.name">targetHost</stringProp>
-            <stringProp name="Argument.value">public-node.testnet.rsk.co/1.1.0</stringProp>
+            <stringProp name="Argument.value">public-node.testnet.rsk.co/1.1.0/</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="targetPort" elementType="Argument">

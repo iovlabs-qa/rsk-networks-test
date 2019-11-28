@@ -125,9 +125,8 @@ workflows:
                         only:
                             - master
         jobs:
-            - TestNet
-            
-     TestNet-afternoon:
+            - TestNet  
+    TestNet-afternoon:
         triggers:
             - schedule:
                 cron: "02 17 * * *"
@@ -137,7 +136,7 @@ workflows:
                             - master
         jobs:
             - TestNet
-     TestNet-night:
+    TestNet-night:
         triggers:
             - schedule:
                 cron: "02 01 * * *"
@@ -147,4 +146,3 @@ workflows:
                             - master
         jobs:
             - TestNet
-

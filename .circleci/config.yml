@@ -1,0 +1,78 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/openjdk:8-jdk
+    working_directory: ~/tmp
+
+    environment:
+      # Customize the JVM maximum heap limit
+      MAVEN_OPTS: -Xmx3200m
+
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache: 
+          keys:
+          - v1-dependencies-{{ checksum "pom.xml" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: mvn dependency:go-offline
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v1-dependencies-{{ checksum "pom.xml" }}
+
+      # run tests!
+      - run:
+          name: Run Tests
+          command: |
+                    mvn verify
+
+
+      - store_artifacts:
+          path: /home/circleci/tmp/target/jmeter/reports
+          destination: ~/tmp/Results
+          
+      - store_artifacts:
+          path: target/jmeter/results
+          destination: ~/tmp/Results
+          
+      - store_test_results:
+          path: ~/tmp/Results
+
+          
+
+workflows:
+    commit:
+        jobs:
+            - build
+    morning:
+        triggers:
+            - schedule:
+                cron: "00 09 * * *"
+                filters:
+                    branches:
+                        only:
+                            - master
+    afternoon:
+        triggers:
+            - schedule:
+                cron: "00 17 * * *"
+                filters:
+                    branches:
+                        only:
+                            - master
+    night:
+        triggers:
+            - schedule:
+                cron: "00 01 * * *"
+                filters:
+                    branches:
+                        only:
+                            - master
+        jobs:
+            - build

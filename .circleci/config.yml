@@ -45,34 +45,34 @@ workflows:
     commit:
         jobs:
             - TestNet
-#    morning:
-#        triggers:
-#            - schedule:
-#                cron: "00 09 * * *"
-#                filters:
-#                    branches:
-#                        only:
-#                            - master
-#        jobs:
-#            - TestNet
-#    afternoon:
-#        triggers:
-#            - schedule:
-#                cron: "00 17 * * *"
-#                filters:
-#                    branches:
-#                        only:
-#                            - master
-#        jobs:
-#            - TestNet
-#    night:
-#        triggers:
-#            - schedule:
-#                cron: "00 01 * * *"
-#                filters:
-#                    branches:
-#                        only:
-#                            - master
-#        jobs:
-#            - TestNet
+    morning:
+        triggers:
+            - schedule:
+                cron: "00 09 * * *"
+                filters:
+                    branches:
+                        only:
+                            - master
+        jobs:
+            - TestNet
+    afternoon:
+        triggers:
+            - schedule:
+                cron: "00 17 * * *"
+                filters:
+                    branches:
+                        only:
+                            - master
+        jobs:
+            - TestNet
+    night:
+        triggers:
+            - schedule:
+                cron: "00 01 * * *"
+                filters:
+                    branches:
+                        only:
+                            - master
+        jobs:
+            - TestNet
 

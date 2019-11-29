@@ -84,8 +84,8 @@ jobs:
 workflows:
     commit:
         jobs:
-            - Testnet
-            - Mainnet
+            - TestNet
+            - MainNet
     MainNet-morning:
         triggers:
             - schedule:

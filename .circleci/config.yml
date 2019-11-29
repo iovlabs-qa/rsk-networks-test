@@ -40,7 +40,7 @@ jobs:
       - store_artifacts:
           path: target/jmeter/results
           destination: ~/tmp/Results
-  Mainnet:
+  MainNet:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
@@ -84,9 +84,9 @@ jobs:
 workflows:
     commit:
         jobs:
-            - TestNet
+            - Testnet
             - Mainnet
-    Mainnet-morning:
+    MainNet-morning:
         triggers:
             - schedule:
                 cron: "00 09 * * *"
@@ -95,8 +95,8 @@ workflows:
                         only:
                             - master
         jobs:
-            - Mainnet
-    Mainnet-afternoon:
+            - MainNet
+    MainNet-afternoon:
         triggers:
             - schedule:
                 cron: "00 17 * * *"
@@ -105,8 +105,8 @@ workflows:
                         only:
                             - master
         jobs:
-            - Mainnet
-    Mainnet-night:
+            - MainNet
+    MainNet-night:
         triggers:
             - schedule:
                 cron: "00 01 * * *"
@@ -115,7 +115,7 @@ workflows:
                         only:
                             - master
         jobs:
-            - Mainnet
+            - MainNet
     TestNet-morning:
         triggers:
             - schedule:

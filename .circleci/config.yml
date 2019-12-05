@@ -96,6 +96,8 @@ workflows:
             - TestNet
             - MainNet
             - Sonar
+                context: SonarCloud
+
     MainNet-morning:
         triggers:
             - schedule:

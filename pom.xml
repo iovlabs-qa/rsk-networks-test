@@ -15,12 +15,13 @@
                     <testFilesIncluded>
                             <jMeterTestFile>RSK-${RskNetwork}-health-check.jmx</jMeterTestFile>
                     </testFilesIncluded>
-                </configuration>
-                    <properties>
+                                        <properties>
         <sonar.projectKey>iovlabs-qa_rsk-networks-test</sonar.projectKey>
         <sonar.organization>iovlabs-qa</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
+                </configuration>
+
                 <executions>
                     <!-- Run JMeter tests -->
                     <execution>

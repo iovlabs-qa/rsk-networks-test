@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  sonar:
     docker:
       - image: 'circleci/openjdk:11-jdk'
     steps:
@@ -92,14 +92,11 @@ jobs:
           destination: ~/tmp/Results
 
 workflows:
-  main:
-    jobs:
-      - build:
-          context: SonarCloud
     commit:
         jobs:
             - TestNet
             - MainNet
+            - Sonar
     MainNet-morning:
         triggers:
             - schedule:

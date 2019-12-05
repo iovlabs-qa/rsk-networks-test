@@ -1,5 +1,15 @@
 version: 2.1
 jobs:
+  build:
+    docker:
+      - image: 'circleci/openjdk:11-jdk'
+    steps:
+      - checkout
+      - run:
+          name: Analyze on SonarCloud
+          command: mvn verify sonar:sonar
+
+
   TestNet:
     docker:
       # specify the version you desire here
@@ -82,6 +92,10 @@ jobs:
           destination: ~/tmp/Results
 
 workflows:
+  main:
+    jobs:
+      - build:
+          context: SonarCloud
     commit:
         jobs:
             - TestNet

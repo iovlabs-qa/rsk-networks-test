@@ -3,6 +3,7 @@ jobs:
   Sonar:
     docker:
       - image: 'circleci/openjdk:11-jdk'
+    context: SonarCloud
     steps:
       - checkout
       - run:
@@ -96,7 +97,6 @@ workflows:
             - TestNet
             - MainNet
             - Sonar
-                context: SonarCloud
 
     MainNet-morning:
         triggers:

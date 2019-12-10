@@ -97,7 +97,6 @@ workflows:
         jobs:
             - TestNet
             - MainNet
-            - Sonar
 
     MainNet-morning:
         triggers:

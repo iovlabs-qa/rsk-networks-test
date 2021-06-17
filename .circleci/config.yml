@@ -95,7 +95,7 @@ jobs:
 workflows:
     commit:
         jobs:
-            - TestNet
+      #       - TestNet
             - MainNet
 
     MainNet-morning:
@@ -128,33 +128,33 @@ workflows:
                             - master
         jobs:
             - MainNet
-    TestNet-morning:
-        triggers:
-            - schedule:
-                cron: "02 09 * * *"
-                filters:
-                    branches:
-                        only:
-                            - master
-        jobs:
-            - TestNet  
-    TestNet-afternoon:
-        triggers:
-            - schedule:
-                cron: "02 17 * * *"
-                filters:
-                    branches:
-                        only:
-                            - master
-        jobs:
-            - TestNet
-    TestNet-night:
-        triggers:
-            - schedule:
-                cron: "02 01 * * *"
-                filters:
-                    branches:
-                        only:
-                            - master
-        jobs:
-            - TestNet
+    # TestNet-morning:
+        # triggers:
+            # - schedule:
+           #      cron: "02 09 * * *"
+          #       filters:
+         #            branches:
+        #                 only:
+       #                      - master
+      #   jobs:
+     #        - TestNet  
+    # TestNet-afternoon:
+        # triggers:
+        #     - schedule:
+       #          cron: "02 17 * * *"
+      #           filters:
+     #                branches:
+    #                     only:
+    #                         - master
+    #     jobs:
+    #         - TestNet
+    # TestNet-night:
+     #    triggers:
+     #        - schedule:
+      # #           cron: "02 01 * * *"
+      #           filters:
+      #               branches:
+      #                   only:
+      #                       - master
+       #  jobs:
+       #      - TestNet
